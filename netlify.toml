@@ -1,0 +1,4 @@
+# Beauty by Anderson – Netlify config
+# Netlify Forms: form is detected from the hidden form in index.html at deploy time.
+# Do NOT add redirects that would turn POST / into a 301/302 (that breaks form submission).
+# A rewrite like /* /index.html 200 is OK: POST to / still hits the origin and Forms still work.

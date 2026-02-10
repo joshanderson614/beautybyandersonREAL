@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Appointment | Beauty by Anderson – Westwood, LA</title>
+  <meta name="description" content="Book your appointment at Beauty by Anderson. Call, text, or request online. Westwood, Los Angeles.">
+  <meta property="og:title" content="Book Appointment | Beauty by Anderson">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="accessibility.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+</head>
+<body class="booking-page">
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="logo-link">
+        <img src="images/new-logo.png" alt="Beauty by Anderson" class="logo-img" width="160" height="80">
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="about.html">About Us</a>
+        <a href="team.html">Our Team</a>
+        <a href="book.html" class="btn-book">Book Appointment</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="services-hero">
+    <h1>Book Your Appointment</h1>
+    <p style="margin-top: 0.5rem;">Call, text, or fill out the form below</p>
+  </section>
+
+  <main id="main-content">
+    <div class="booking-methods">
+      <a href="tel:+13109859826" class="btn-hero" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call (310) 985-9826
+      </a>
+      <a href="sms:+13109859826" class="btn-hero btn-outline btn-text-us" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Text Us
+      </a>
+    </div>
+
+    <h2 class="section-title">Request an Appointment</h2>
+    <div class="booking-form-container">
+      <!--
+        NETLIFY CHECKLIST:
+        - Form name is defined here: name="appointment" on <form>
+        - In Netlify Dashboard look for form: "appointment" (Site → Forms)
+        - Form appears after first deploy/submission. Email notifications: Netlify → Site → Forms → [appointment] → Notifications → Add notification → Email
+      -->
+      <form class="booking-form" name="appointment" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/">
+        <input type="hidden" name="form-name" value="appointment" />
+        <p style="display:none;">
+          <label>Don't fill this out: <input id="bot-field" name="bot-field" /></label>
+        </p>
+        <input type="hidden" name="sourcePage" id="form-source-page" value="" />
+        <div class="form-group">
+          <label for="book-name">Name</label>
+          <input type="text" id="book-name" name="name" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="book-phone">Phone</label>
+          <input type="tel" id="book-phone" name="phone" required pattern="[\d\s\-\.\+\(\)]{10,}" title="Enter a valid phone number (at least 10 digits)" autocomplete="tel">
+        </div>
+        <div class="form-group">
+          <label for="book-email">Email</label>
+          <input type="email" id="book-email" name="email" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="book-service">Service</label>
+          <select id="book-service" name="service" required>
+            <option value="">Select a service</option>
+            <option value="Signature Blow-Dry">Signature Blow-Dry</option>
+            <option value="Ultimate Haircut">Ultimate Haircut</option>
+            <option value="Ultimate Healthy Haircut">Ultimate Healthy Haircut</option>
+            <option value="Milbon Treatment">Milbon Treatment</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="book-date">Date</label>
+          <input type="date" id="book-date" name="preferredDate" required min="" autocomplete="off" class="booking-form-input-date">
+        </div>
+        <div class="form-group">
+          <label for="book-time-trigger">Time</label>
+          <div class="time-dropdown-wrap">
+            <button type="button" id="book-time-trigger" class="date-time-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Choose time">
+              <span id="book-time-display">Select time</span>
+              <span class="dropdown-arrow" aria-hidden="true">▼</span>
+            </button>
+            <input type="hidden" id="book-time" name="preferredTime" value="">
+            <input type="hidden" name="preferredDateTime" id="book-datetime-combined" value="">
+            <div id="time-list-dropdown" class="time-list-dropdown" role="listbox" aria-label="Appointment times" hidden>
+              <!-- 9:00 AM - 8:00 PM every 30 min, filled by JS -->
+            </div>
+          </div>
+        </div>
+        <div id="form-feedback" class="form-feedback" role="status" aria-live="polite"></div>
+        <button type="submit" class="btn-hero btn-submit" id="form-submit-btn">Submit Request</button>
+      </form>
+    </div>
+
+    <p style="margin-top: 2rem; color: var(--color-text-muted);">We&rsquo;ll call or text to confirm your appointment.</p>
+    <p><strong>Hours:</strong> Mon–Sat 9AM–8PM, Sun 11AM–3PM</p>
+    <p><strong>Address:</strong> 700 Levering Ave, Los Angeles, CA</p>
+    <p>Street parking available.</p>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="footer-nap">Beauty by Anderson | 700 Levering Ave, Los Angeles, CA 90024 | <a href="tel:+13109859826">(310) 985-9826</a></div>
+    <div class="footer-grid">
+      <div class="footer-contact">
+        <h3>Contact</h3>
+        <div class="contact-buttons">
+          <a href="tel:+13109859826" class="contact-btn">(310) 985-9826</a>
+          <a href="sms:+13109859826" class="contact-btn">Message</a>
+          <a href="book.html" class="contact-btn">Book Now</a>
+        </div>
+        <div class="footer-rating"><span class="footer-rating-stars">★★★★★</span> 4.6/5 on Google</div>
+      </div>
+      <div class="footer-location">
+        <h3>Location</h3>
+        <div class="map-container">
+          <iframe src="https://maps.google.com/maps?q=700+Levering+Ave,+Los+Angeles,+CA&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <a href="https://maps.google.com/?q=700+Levering+Ave,+Los+Angeles,+CA" target="_blank" rel="noopener">700 Levering Ave, Los Angeles, CA</a>
+      </div>
+      <div class="footer-hours">
+        <h3>Hours</h3>
+        <ul>
+          <li><strong>Sunday:</strong> 11AM – 3PM</li>
+          <li><strong>Monday:</strong> 9AM – 8PM</li>
+          <li><strong>Tuesday:</strong> 9AM – 8PM</li>
+          <li><strong>Wednesday:</strong> 9AM – 8PM</li>
+          <li><strong>Thursday:</strong> 9AM – 8PM</li>
+          <li><strong>Friday:</strong> 9AM – 8PM</li>
+          <li><strong>Saturday:</strong> 9AM – 8PM</li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-copy">&copy; Beauty by Anderson. Since 1995.</p>
+  </footer>
+
+  <script src="transitions.js" defer></script>
+  <script>
+    (function() {
+      var form = document.querySelector('.booking-form');
+      var feedback = document.getElementById('form-feedback');
+      var submitBtn = document.getElementById('form-submit-btn');
+      var dateInput = document.getElementById('book-date');
+
+      // Set min date to today (no past dates)
+      if (dateInput) {
+        var today = new Date();
+        var y = today.getFullYear(), m = today.getMonth() + 1, d = today.getDate();
+        dateInput.min = y + '-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ? '0' + d : d);
+      }
+
+      // --- Time dropdown ---
+      var timeSlots = [];
+      for (var h = 9; h <= 20; h++) {
+        for (var half = 0; half < 2; half++) {
+          if (h === 20 && half === 1) break;
+          var hour = h, min = half * 30;
+          var label = (hour === 12 ? 12 : hour % 12) + ':' + (min === 0 ? '00' : '30') + ' ' + (hour < 12 ? 'AM' : 'PM');
+          var value = (hour < 10 ? '0' : '') + hour + ':' + (min === 0 ? '00' : '30');
+          timeSlots.push({ label: label, value: value });
+        }
+      }
+      var timeTrigger = document.getElementById('book-time-trigger');
+      var timeDisplay = document.getElementById('book-time-display');
+      var timeInput = document.getElementById('book-time');
+      var timeListDropdown = document.getElementById('time-list-dropdown');
+      timeSlots.forEach(function(slot) {
+        var opt = document.createElement('button');
+        opt.type = 'button';
+        opt.role = 'option';
+        opt.className = 'time-option';
+        opt.textContent = slot.label;
+        opt.dataset.value = slot.value;
+        opt.addEventListener('click', function() {
+          timeInput.value = slot.value;
+          timeDisplay.textContent = slot.label;
+          timeListDropdown.setAttribute('hidden', '');
+          timeTrigger.setAttribute('aria-expanded', 'false');
+        });
+        timeListDropdown.appendChild(opt);
+      });
+      timeTrigger.addEventListener('click', function() {
+        var open = timeListDropdown.getAttribute('hidden') == null;
+        if (open) {
+          timeListDropdown.setAttribute('hidden', '');
+          timeTrigger.setAttribute('aria-expanded', 'false');
+        } else {
+          timeListDropdown.removeAttribute('hidden');
+          timeTrigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+      document.addEventListener('click', function(e) {
+        if (timeListDropdown.getAttribute('hidden') == null && !timeListDropdown.contains(e.target) && e.target !== timeTrigger) {
+          timeListDropdown.setAttribute('hidden', '');
+          timeTrigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Prefill service from URL ?service=...
+      var params = new URLSearchParams(window.location.search);
+      var service = params.get('service');
+      var sel = document.getElementById('book-service');
+      if (service && sel) {
+        var opt = Array.from(sel.options).find(function(o) { return o.value === service; });
+        if (opt) sel.value = service;
+      }
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (submitBtn.disabled) return;
+
+        var dateVal = dateInput.value, timeVal = timeInput.value;
+        if (!dateVal || !timeVal) {
+          feedback.className = 'form-feedback form-feedback-error';
+          feedback.textContent = 'Please select both a date and a time.';
+          return;
+        }
+
+        // Honeypot: if filled, pretend success (no submit)
+        var botField = document.getElementById('bot-field');
+        if (botField && botField.value) {
+          feedback.textContent = '';
+          form.reset();
+          timeInput.value = '';
+          timeDisplay.textContent = 'Select time';
+          return;
+        }
+
+        // Set sourcePage for Netlify submission
+        var sourceInput = document.getElementById('form-source-page');
+        if (sourceInput) sourceInput.value = window.location.href || '';
+
+        var combinedInput = document.getElementById('book-datetime-combined');
+        if (combinedInput) combinedInput.value = dateVal + ' ' + timeVal;
+
+        var formData = new FormData(form);
+        var body = new URLSearchParams(formData).toString();
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting…';
+        feedback.className = 'form-feedback';
+        feedback.textContent = '';
+
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: body
+        })
+          .then(function(res) {
+            if (res.ok) {
+              feedback.className = 'form-feedback form-feedback-success';
+              feedback.textContent = 'Your appointment request is confirmed. We\'ll call or text you shortly.';
+              form.reset();
+              timeInput.value = '';
+              timeDisplay.textContent = 'Select time';
+              if (sourceInput) sourceInput.value = '';
+            } else {
+              throw new Error('Submit failed');
+            }
+          })
+          .catch(function() {
+            feedback.className = 'form-feedback form-feedback-error';
+            feedback.textContent = 'Something went wrong — please try again or call/text us.';
+          })
+          .finally(function() {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Request';
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

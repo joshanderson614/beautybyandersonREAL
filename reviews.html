@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reviews | Beauty by Anderson – 4.6/5 on Google | Westwood, LA</title>
+  <meta name="description" content="See what clients say about Beauty by Anderson. 4.6/5 on Google. Premium hair salon in Westwood, Los Angeles.">
+  <meta property="og:title" content="Reviews | Beauty by Anderson">
+  <meta property="og:description" content="4.6/5 on Google. Premium hair salon in Westwood.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="accessibility.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="logo-link">
+        <img src="images/new-logo.png" alt="Beauty by Anderson" class="logo-img" width="160" height="80">
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="about.html">About Us</a>
+        <a href="team.html">Our Team</a>
+        <a href="book.html" class="btn-book">Book Appointment</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="reviews-hero">
+    <h1>Reviews</h1>
+    <p class="reviews-rating-badge"><span class="footer-rating-stars">★★★★★</span> 4.6/5 on Google Maps</p>
+  </section>
+
+  <main class="reviews-main" id="main-content">
+    <p class="reviews-google-cta">
+      <a href="https://maps.google.com/?q=700+Levering+Ave,+Los+Angeles,+CA" target="_blank" rel="noopener" class="btn-primary">Read more on Google</a>
+    </p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars" aria-hidden="true">★★★★★</div>
+        <p class="review-text">&ldquo;The best haircut I&rsquo;ve ever had. The attention to detail and the relaxing atmosphere are unmatched in Westwood.&rdquo;</p>
+        <p class="review-author">— Elena R.</p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars" aria-hidden="true">★★★★★</div>
+        <p class="review-text">&ldquo;Been coming here since 2010. Anderson is a master of his craft.&rdquo;</p>
+        <p class="review-author">— James M.</p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars" aria-hidden="true">★★★★★</div>
+        <p class="review-text">&ldquo;Luxury at its finest. They use non-toxic products which is super important to me. Highly recommend the blow-dry.&rdquo;</p>
+        <p class="review-author">— Sarah P.</p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars" aria-hidden="true">★★★★★</div>
+        <div class="review-text-wrapper">
+          <p class="review-text review-text-truncated" id="r4"> &ldquo;Elena did an amazing job with my color. The salon is always clean and the staff is so welcoming. I&rsquo;ve tried many salons in LA and this is the only one I keep coming back to. The Milbon treatment made my hair feel like silk. Can&rsquo;t recommend enough!&rdquo;</p>
+          <button type="button" class="review-toggle" aria-expanded="false" aria-controls="r4" onclick="toggleReview(this)">Read more</button>
+        </div>
+        <p class="review-author">— Michelle K.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="footer-nap">Beauty by Anderson | 700 Levering Ave, Los Angeles, CA 90024 | <a href="tel:+13109859826">(310) 985-9826</a></div>
+    <div class="footer-grid">
+      <div class="footer-contact">
+        <h3>Contact</h3>
+        <div class="contact-buttons">
+          <a href="tel:+13109859826" class="contact-btn">(310) 985-9826</a>
+          <a href="sms:+13109859826" class="contact-btn">Message</a>
+          <a href="book.html" class="contact-btn">Book Now</a>
+        </div>
+        <div class="footer-rating"><span class="footer-rating-stars">★★★★★</span> 4.6/5 on Google</div>
+      </div>
+      <div class="footer-location">
+        <h3>Location</h3>
+        <div class="map-container">
+          <iframe src="https://maps.google.com/maps?q=700+Levering+Ave,+Los+Angeles,+CA&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" title="Map to Beauty by Anderson"></iframe>
+        </div>
+        <a href="https://maps.google.com/?q=700+Levering+Ave,+Los+Angeles,+CA" target="_blank" rel="noopener">700 Levering Ave, Los Angeles, CA</a>
+      </div>
+      <div class="footer-hours">
+        <h3>Hours</h3>
+        <ul>
+          <li><strong>Sunday:</strong> 11AM – 3PM</li>
+          <li><strong>Monday:</strong> 9AM – 8PM</li>
+          <li><strong>Tuesday:</strong> 9AM – 8PM</li>
+          <li><strong>Wednesday:</strong> 9AM – 8PM</li>
+          <li><strong>Thursday:</strong> 9AM – 8PM</li>
+          <li><strong>Friday:</strong> 9AM – 8PM</li>
+          <li><strong>Saturday:</strong> 9AM – 8PM</li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-copy">&copy; Beauty by Anderson. Since 1995.</p>
+  </footer>
+
+  <script src="transitions.js" defer></script>
+  <script>
+    function toggleReview(btn) {
+      var text = document.getElementById(btn.getAttribute('aria-controls'));
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      text.classList.toggle('review-text-expanded', !expanded);
+      btn.setAttribute('aria-expanded', !expanded);
+      btn.textContent = expanded ? 'Read more' : 'Read less';
+    }
+  </script>
+</body>
+</html>
