@@ -363,19 +363,19 @@ img {
 .hero-carousel-prev { left: 1rem; }
 .hero-carousel-next { right: 1rem; }
 
-/* Mobile: arrows in upper image area only — no overlap with headline or paragraph */
+/* Mobile: arrows at sides of carousel, vertically centered; no overlap with text */
 @media (max-width: 768px) {
   .hero-carousel-btn {
-    top: 10%;
-    transform: translateY(0);
+    top: 50%;
+    transform: translateY(-50%);
     width: 44px;
     height: 44px;
   }
   .hero-carousel-btn:hover {
-    transform: scale(1.05);
+    transform: translateY(-50%) scale(1.05);
   }
-  .hero-carousel-prev { left: 0.75rem; }
-  .hero-carousel-next { right: 0.75rem; }
+  .hero-carousel-prev { left: 0.5rem; }
+  .hero-carousel-next { right: 0.5rem; }
   .carousel-arrow {
     width: 20px;
     height: 20px;
@@ -1149,28 +1149,77 @@ h2.section-title::after {
 
 /* Responsive — mobile only (max-width: 768px) */
 @media (max-width: 768px) {
-  /* 3. Logo: slightly larger, centered in header */
-  .nav { flex-wrap: wrap; padding: 0.75rem 1rem; min-height: auto; justify-content: center; }
+  /* PART 2: Compact header — Our Team in nav row, Book Appointment alone on bottom row, less whitespace */
+  .nav {
+    flex-wrap: wrap;
+    padding: 0.5rem 0.75rem;
+    min-height: auto;
+    justify-content: center;
+  }
   .nav .logo-link {
     order: -1;
     width: 100%;
     justify-content: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.35rem;
   }
-  .logo-img { height: 78px; }
-  .nav-links { order: 3; width: 100%; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
-  .nav-links a { padding: 0.5rem 0.75rem; font-size: 0.9375rem; min-height: 44px; display: inline-flex; align-items: center; }
-  /* 4. Nav: separate "Our Team" from "Book Appointment" — clear spacing so Book doesn't feel grouped with links */
-  .nav-links .btn-book { margin-top: 0.75rem; }
+  .logo-img { height: 72px; }
+  .nav-links {
+    order: 3;
+    width: 100%;
+    gap: 0.4rem 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .nav-links a {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+  }
+  /* Book Appointment: only item on its own row, centered */
+  .nav-links .btn-book {
+    flex-basis: 100%;
+    order: 10;
+    margin-top: 0.5rem;
+    justify-content: center;
+    padding: 0.5rem 1.25rem;
+  }
 
-  /* 1. Hero: content starts below arrow zone so arrows never overlap text */
+  /* PART 1: Hero carousel — centered text, arrows at sides, breathing room */
   .hero { min-height: min(68vh, 480px); }
-  .hero-content { padding: 4.5rem 1rem 2rem 1rem; }
-  /* 2. Hero text: more space between headline and paragraph */
-  .hero-text h1 { font-size: clamp(1.75rem, 5.5vw, 2.25rem); margin-bottom: 0.85rem; }
-  .hero-subtitle { font-size: 0.9375rem; max-width: 100%; margin-bottom: 1.5rem; margin-top: 0.15rem; }
-  .hero-buttons { flex-direction: column; align-items: stretch; width: 100%; gap: 0.65rem; }
-  .hero-buttons .btn-hero { width: 100%; justify-content: center; min-height: 48px; }
+  .hero-content {
+    padding: 2rem 3.25rem 2rem 3.25rem;
+    text-align: center;
+  }
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+  }
+  .hero-text h1 {
+    font-size: clamp(1.75rem, 5.5vw, 2.25rem);
+    margin-bottom: 0.75rem;
+    text-align: center;
+  }
+  .hero-subtitle {
+    font-size: 0.9375rem;
+    max-width: 26em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    text-align: center;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0.65rem;
+  }
+  .hero-buttons .btn-hero { width: 100%; max-width: 280px; justify-content: center; min-height: 48px; }
   .home-page .hero-buttons .btn-hero { min-height: 50px; padding: 0.875rem 1.5rem; font-size: 1rem; }
 
   /* 5. About Us page: clear vertical spacing between Meet Our Team and Book Appointment */
