@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Appointment | Beauty by Anderson – Westwood, LA</title>
-  <meta name="description" content="Book your appointment at Beauty by Anderson. Call, text, or request online. Westwood, Los Angeles.">
+  <title>Book Appointment | Beauty by Anderson – Westwood, LA | Call (310) 985-9826</title>
+  <meta name="description" content="Book your appointment at Beauty by Anderson. Call (310) 985-9826, text, or request online. 700 Levering Ave, Westwood, Los Angeles.">
   <meta property="og:title" content="Book Appointment | Beauty by Anderson">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="accessibility.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -20,7 +20,7 @@
   <header class="header">
     <nav class="nav">
       <a href="index.html" class="logo-link">
-        <img src="images/new-logo.png" alt="Beauty by Anderson" class="logo-img" width="160" height="80">
+        <img src="images/new-logo.png" alt="Beauty by Anderson" class="logo-img" width="200" height="80" loading="eager">
       </a>
       <div class="nav-links">
         <a href="index.html">Home</a>
@@ -28,21 +28,26 @@
         <a href="reviews.html">Reviews</a>
         <a href="about.html">About Us</a>
         <a href="team.html">Our Team</a>
-        <a href="book.html" class="btn-book">Book Appointment</a>
+        <a href="book.html" class="btn-book">Book Now</a>
+        <a href="tel:+13109859826" class="nav-call-link">Call Now</a>
       </div>
     </nav>
   </header>
 
   <section class="services-hero">
     <h1>Book Your Appointment</h1>
-    <p style="margin-top: 0.5rem;">Call, text, or fill out the form below</p>
+    <p style="margin-top: 0.5rem;">Call now, text, or fill out the form below</p>
   </section>
 
   <main id="main-content">
-    <div class="booking-methods">
-      <a href="tel:+13109859826" class="btn-hero" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+    <div class="booking-methods cta-pair">
+      <a href="tel:+13109859826" class="btn-hero btn-outline" style="display: inline-flex; align-items: center; gap: 0.5rem;">
         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         Call (310) 985-9826
+      </a>
+      <a href="https://www.google.com/maps/dir//700+Levering+Ave,+Los+Angeles,+CA+90024" target="_blank" rel="noopener" class="btn-hero btn-outline" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Get Directions
       </a>
       <a href="sms:+13109859826" class="btn-hero btn-outline btn-text-us" style="display: inline-flex; align-items: center; gap: 0.5rem;">
         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
@@ -52,12 +57,6 @@
 
     <h2 class="section-title">Request an Appointment</h2>
     <div class="booking-form-container">
-      <!--
-        NETLIFY CHECKLIST:
-        - Form name is defined here: name="appointment" on <form>
-        - In Netlify Dashboard look for form: "appointment" (Site → Forms)
-        - Form appears after first deploy/submission. Email notifications: Netlify → Site → Forms → [appointment] → Notifications → Add notification → Email
-      -->
       <form class="booking-form" name="appointment" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/">
         <input type="hidden" name="form-name" value="appointment" />
         <p style="display:none;">
@@ -73,17 +72,17 @@
           <input type="tel" id="book-phone" name="phone" required pattern="[\d\s\-\.\+\(\)]{10,}" title="Enter a valid phone number (at least 10 digits)" autocomplete="tel">
         </div>
         <div class="form-group">
-          <label for="book-email">Email</label>
-          <input type="email" id="book-email" name="email" required autocomplete="email">
+          <label for="book-email">Email <span class="optional">(optional)</span></label>
+          <input type="email" id="book-email" name="email" autocomplete="email">
         </div>
         <div class="form-group">
           <label for="book-service">Service</label>
           <select id="book-service" name="service" required>
             <option value="">Select a service</option>
-            <option value="Signature Blow-Dry">Signature Blow-Dry</option>
-            <option value="Ultimate Haircut">Ultimate Haircut</option>
-            <option value="Ultimate Healthy Haircut">Ultimate Healthy Haircut</option>
-            <option value="Milbon Treatment">Milbon Treatment</option>
+            <option value="Signature Blow-Dry">Signature Blow-Dry — $69</option>
+            <option value="Ultimate Haircut">Ultimate Haircut — $269</option>
+            <option value="Ultimate Healthy Haircut">Ultimate Healthy Haircut — $350</option>
+            <option value="Milbon Treatment">Milbon Treatment — $85</option>
           </select>
         </div>
         <div class="form-group">
@@ -99,10 +98,12 @@
             </button>
             <input type="hidden" id="book-time" name="preferredTime" value="">
             <input type="hidden" name="preferredDateTime" id="book-datetime-combined" value="">
-            <div id="time-list-dropdown" class="time-list-dropdown" role="listbox" aria-label="Appointment times" hidden>
-              <!-- 9:00 AM - 8:00 PM every 30 min, filled by JS -->
-            </div>
+            <div id="time-list-dropdown" class="time-list-dropdown" role="listbox" aria-label="Appointment times" hidden></div>
           </div>
+        </div>
+        <div class="form-group">
+          <label for="book-notes">Notes <span class="optional">(optional)</span></label>
+          <textarea id="book-notes" name="notes" rows="3" placeholder="Special requests or questions" class="booking-form-input-full"></textarea>
         </div>
         <div id="form-feedback" class="form-feedback" role="status" aria-live="polite"></div>
         <button type="submit" class="btn-hero btn-submit" id="form-submit-btn">Submit Request</button>
@@ -110,27 +111,33 @@
     </div>
 
     <p style="margin-top: 2rem; color: var(--color-text-muted);">We&rsquo;ll call or text to confirm your appointment.</p>
+    <p><strong>Phone:</strong> <a href="tel:+13109859826">(310) 985-9826</a></p>
+    <p><strong>Address:</strong> 700 Levering Ave, Los Angeles, CA 90024</p>
     <p><strong>Hours:</strong> Mon–Sat 9AM–8PM, Sun 11AM–3PM</p>
-    <p><strong>Address:</strong> 700 Levering Ave, Los Angeles, CA</p>
+    <p><a href="https://www.google.com/maps/dir//700+Levering+Ave,+Los+Angeles,+CA+90024" target="_blank" rel="noopener">Get directions</a></p>
     <p>Street parking available.</p>
   </main>
 
   <footer class="footer" id="contact">
-    <div class="footer-nap">Beauty by Anderson | 700 Levering Ave, Los Angeles, CA 90024 | <a href="tel:+13109859826">(310) 985-9826</a></div>
+    <div class="footer-nap">
+      <span class="footer-nap-name">Beauty by Anderson</span>
+      <span class="footer-nap-line2">700 Levering Ave, Los Angeles, CA 90024 | <a href="tel:+13109859826">(310) 985-9826</a></span>
+    </div>
     <div class="footer-grid">
       <div class="footer-contact">
         <h3>Contact</h3>
         <div class="contact-buttons">
-          <a href="tel:+13109859826" class="contact-btn">(310) 985-9826</a>
+          <a href="book.html" class="contact-btn contact-btn-primary">Book Now</a>
+          <a href="tel:+13109859826" class="contact-btn">Call (310) 985-9826</a>
+          <a href="https://www.google.com/maps/dir//700+Levering+Ave,+Los+Angeles,+CA+90024" target="_blank" rel="noopener" class="contact-btn">Get Directions</a>
           <a href="sms:+13109859826" class="contact-btn">Message</a>
-          <a href="book.html" class="contact-btn">Book Now</a>
         </div>
         <div class="footer-rating"><span class="footer-rating-stars">★★★★★</span> 4.6/5 on Google</div>
       </div>
       <div class="footer-location">
         <h3>Location</h3>
         <div class="map-container">
-          <iframe src="https://maps.google.com/maps?q=700+Levering+Ave,+Los+Angeles,+CA&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+          <iframe src="https://maps.google.com/maps?q=700+Levering+Ave,+Los+Angeles,+CA+90024&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" title="Map to Beauty by Anderson"></iframe>
         </div>
         <a href="https://maps.google.com/?q=700+Levering+Ave,+Los+Angeles,+CA" target="_blank" rel="noopener">700 Levering Ave, Los Angeles, CA</a>
       </div>
@@ -138,12 +145,7 @@
         <h3>Hours</h3>
         <ul>
           <li><strong>Sunday:</strong> 11AM – 3PM</li>
-          <li><strong>Monday:</strong> 9AM – 8PM</li>
-          <li><strong>Tuesday:</strong> 9AM – 8PM</li>
-          <li><strong>Wednesday:</strong> 9AM – 8PM</li>
-          <li><strong>Thursday:</strong> 9AM – 8PM</li>
-          <li><strong>Friday:</strong> 9AM – 8PM</li>
-          <li><strong>Saturday:</strong> 9AM – 8PM</li>
+          <li><strong>Monday–Saturday:</strong> 9AM – 8PM</li>
         </ul>
       </div>
     </div>
@@ -158,14 +160,12 @@
       var submitBtn = document.getElementById('form-submit-btn');
       var dateInput = document.getElementById('book-date');
 
-      // Set min date to today (no past dates)
       if (dateInput) {
         var today = new Date();
         var y = today.getFullYear(), m = today.getMonth() + 1, d = today.getDate();
         dateInput.min = y + '-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ? '0' + d : d);
       }
 
-      // --- Time dropdown ---
       var timeSlots = [];
       for (var h = 9; h <= 20; h++) {
         for (var half = 0; half < 2; half++) {
@@ -212,13 +212,13 @@
         }
       });
 
-      // Prefill service from URL ?service=...
       var params = new URLSearchParams(window.location.search);
       var service = params.get('service');
       var sel = document.getElementById('book-service');
       if (service && sel) {
-        var opt = Array.from(sel.options).find(function(o) { return o.value === service; });
-        if (opt) sel.value = service;
+        var decoded = decodeURIComponent(service.replace(/\+/g, ' '));
+        var opt = Array.from(sel.options).find(function(o) { return o.value === decoded || o.value === service; });
+        if (opt) sel.value = opt.value;
       }
 
       form.addEventListener('submit', function(e) {
@@ -232,7 +232,6 @@
           return;
         }
 
-        // Honeypot: if filled, pretend success (no submit)
         var botField = document.getElementById('bot-field');
         if (botField && botField.value) {
           feedback.textContent = '';
@@ -242,7 +241,6 @@
           return;
         }
 
-        // Set sourcePage for Netlify submission
         var sourceInput = document.getElementById('form-source-page');
         if (sourceInput) sourceInput.value = window.location.href || '';
 
@@ -265,7 +263,7 @@
           .then(function(res) {
             if (res.ok) {
               feedback.className = 'form-feedback form-feedback-success';
-              feedback.textContent = 'Your appointment request is confirmed. We\'ll call or text you shortly.';
+              feedback.textContent = 'Request received! We\'ll call or text shortly to confirm your appointment.';
               form.reset();
               timeInput.value = '';
               timeDisplay.textContent = 'Select time';
@@ -276,7 +274,7 @@
           })
           .catch(function() {
             feedback.className = 'form-feedback form-feedback-error';
-            feedback.textContent = 'Something went wrong — please try again or call/text us.';
+            feedback.textContent = 'Something went wrong — please try again or call/text us at (310) 985-9826.';
           })
           .finally(function() {
             submitBtn.disabled = false;
