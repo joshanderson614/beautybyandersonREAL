@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Appointment | Beauty by Anderson – Westwood, LA | Call 310 985 9260</title>
-  <meta name="description" content="Book your appointment at Beauty by Anderson. Call 310 985 9260, text, or request online. 700 Levering Ave, Westwood, Los Angeles.">
+  <title>Book Appointment | Beauty by Anderson – Westwood, LA | Call (310) 985-9260</title>
+  <meta name="description" content="Book your appointment at Beauty by Anderson. Call (310) 985-9260, text, or request online. 700 Levering Ave, Westwood, Los Angeles.">
   <meta property="og:title" content="Book Appointment | Beauty by Anderson">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="accessibility.css">
@@ -43,7 +43,7 @@
     <div class="booking-methods cta-pair">
       <a href="tel:+13109859260" class="btn-hero btn-outline" style="display: inline-flex; align-items: center; gap: 0.5rem;">
         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Call 310 985 9260
+        Call (310) 985-9260
       </a>
       <a href="https://www.google.com/maps/dir//700+Levering+Ave,+Los+Angeles,+CA+90024" target="_blank" rel="noopener" class="btn-hero btn-outline" style="display: inline-flex; align-items: center; gap: 0.5rem;">
         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -76,21 +76,22 @@
           <input type="email" id="book-email" name="email" autocomplete="email">
         </div>
         <div class="form-group">
-          <label for="book-service">Service</label>
-          <select id="book-service" name="service" required>
-            <option value="">Select a service</option>
-            <option value="Signature Blow-Dry">Signature Blow-Dry — $69</option>
-            <option value="Ultimate Haircut">Ultimate Haircut — $269</option>
-            <option value="Ultimate Healthy Haircut">Ultimate Healthy Haircut — $350</option>
-            <option value="Milbon Treatment">Milbon Treatment — $85</option>
-          </select>
+          <label for="book-service-trigger">Service</label>
+          <div class="service-dropdown-wrap">
+            <button type="button" id="book-service-trigger" class="date-time-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Choose service">
+              <span id="book-service-display">Select a service</span>
+              <span class="dropdown-arrow" aria-hidden="true">▾</span>
+            </button>
+            <input type="hidden" id="book-service" name="service" value="">
+            <div id="service-list-dropdown" class="time-list-dropdown service-list-dropdown" role="listbox" aria-label="Services" hidden></div>
+          </div>
         </div>
         <div class="form-group">
           <label for="book-date-trigger">Date</label>
           <div class="date-dropdown-wrap">
             <button type="button" id="book-date-trigger" class="date-time-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Choose date">
               <span id="book-date-display">Select date</span>
-              <span class="dropdown-arrow" aria-hidden="true">▼</span>
+              <span class="dropdown-arrow" aria-hidden="true">▾</span>
             </button>
             <input type="hidden" id="book-date" name="preferredDate" value="" required>
             <div id="calendar-dropdown" class="calendar-dropdown" hidden>
@@ -111,7 +112,7 @@
           <div class="time-dropdown-wrap">
             <button type="button" id="book-time-trigger" class="date-time-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Choose time">
               <span id="book-time-display">Select time</span>
-              <span class="dropdown-arrow" aria-hidden="true">▼</span>
+              <span class="dropdown-arrow" aria-hidden="true">▾</span>
             </button>
             <input type="hidden" id="book-time" name="preferredTime" value="">
             <input type="hidden" name="preferredDateTime" id="book-datetime-combined" value="">
@@ -129,7 +130,7 @@
 
     <div class="booking-info-centered">
       <p>We&rsquo;ll call or text to confirm your appointment.</p>
-      <p><strong>Phone:</strong> <a href="tel:+13109859260">310 985 9260</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+13109859260">(310) 985-9260</a></p>
       <p><strong>Address:</strong> 700 Levering Ave, Los Angeles, CA 90024</p>
       <p><strong>Hours:</strong> Monday-Saturday 9AM-8PM, Sunday 11AM-3PM</p>
       <p><a href="https://www.google.com/maps/dir//700+Levering+Ave,+Los+Angeles,+CA+90024" target="_blank" rel="noopener">Get directions</a></p>
@@ -140,14 +141,14 @@
   <footer class="footer" id="contact">
     <div class="footer-nap">
       <img src="images/new-logo.png" alt="Beauty by Anderson" class="footer-brand-logo" width="220" height="110" loading="lazy">
-      <span class="footer-nap-line2">700 Levering Ave, Los Angeles, CA 90024 | <a href="tel:+13109859260">310 985 9260</a></span>
+      <span class="footer-nap-line2">700 Levering Ave, Los Angeles, CA 90024 | <a href="tel:+13109859260">(310) 985-9260</a></span>
     </div>
     <div class="footer-grid">
       <div class="footer-contact">
         <h3>Contact</h3>
         <div class="contact-buttons">
           <a href="book.html" class="contact-btn contact-btn-primary">Book Now</a>
-          <a href="tel:+13109859260" class="contact-btn">Call 310 985 9260</a>
+          <a href="tel:+13109859260" class="contact-btn">Call (310) 985-9260</a>
           <a href="https://www.google.com/maps/dir//700+Levering+Ave,+Los+Angeles,+CA+90024" target="_blank" rel="noopener" class="contact-btn">Get Directions</a>
           <a href="sms:+13109859260" class="contact-btn">Message</a>
         </div>
@@ -184,7 +185,6 @@
       var form = document.querySelector('.booking-form');
       var feedback = document.getElementById('form-feedback');
       var submitBtn = document.getElementById('form-submit-btn');
-      var dateInput = document.getElementById('book-date');
 
       var phoneInput = document.getElementById('book-phone');
       var iti = null;
@@ -197,12 +197,60 @@
         });
       }
 
+      // Service dropdown
+      var serviceTrigger = document.getElementById('book-service-trigger');
+      var serviceDisplay = document.getElementById('book-service-display');
+      var serviceInput = document.getElementById('book-service');
+      var serviceListDropdown = document.getElementById('service-list-dropdown');
+      var serviceOptions = [
+        "Women's Haircut & Style",
+        "Men's Haircut",
+        "Children's Haircut",
+        'Blowout / Blow-Dry Style',
+        'Single Process Color',
+        'Partial Highlights',
+        'Full Highlights',
+        'Balayage',
+        'Deep Conditioning Treatment',
+        'Keratin Smoothing Treatment',
+        'Hair Extensions Consultation',
+        'Tape-In Hair Extensions'
+      ];
+
+      serviceOptions.forEach(function(name) {
+        var opt = document.createElement('button');
+        opt.type = 'button';
+        opt.role = 'option';
+        opt.className = 'time-option service-option';
+        opt.textContent = name;
+        opt.dataset.value = name;
+        opt.addEventListener('click', function() {
+          serviceInput.value = name;
+          serviceDisplay.textContent = name;
+          serviceListDropdown.setAttribute('hidden', '');
+          serviceTrigger.setAttribute('aria-expanded', 'false');
+        });
+        serviceListDropdown.appendChild(opt);
+      });
+
+      serviceTrigger.addEventListener('click', function() {
+        var open = !serviceListDropdown.hasAttribute('hidden');
+        if (open) {
+          serviceListDropdown.setAttribute('hidden', '');
+          serviceTrigger.setAttribute('aria-expanded', 'false');
+        } else {
+          serviceListDropdown.removeAttribute('hidden');
+          serviceTrigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+
       // Calendar dropdown setup
       var today = new Date();
       today.setHours(0, 0, 0, 0);
       var currentMonth = new Date(today.getFullYear(), today.getMonth(), 1);
       var selectedDate = null;
 
+      var dateInput = document.getElementById('book-date');
       var dateTrigger = document.getElementById('book-date-trigger');
       var dateDisplay = document.getElementById('book-date-display');
       var calendarDropdown = document.getElementById('calendar-dropdown');
@@ -228,7 +276,6 @@
       }
 
       function renderCalendar() {
-        if (!calendarGrid) return;
         var year = currentMonth.getFullYear();
         var month = currentMonth.getMonth();
         var firstDay = new Date(year, month, 1).getDay();
@@ -246,7 +293,6 @@
           blank.type = 'button';
           blank.className = 'calendar-day is-empty';
           blank.disabled = true;
-          blank.textContent = '';
           calendarGrid.appendChild(blank);
         }
 
@@ -272,7 +318,7 @@
           }
 
           if (!isPast) {
-            btn.addEventListener('click', function(d) {
+            btn.addEventListener('click', (function(d) {
               return function() {
                 selectedDate = d;
                 dateInput.value = formatValueDate(d);
@@ -281,45 +327,37 @@
                 dateTrigger.setAttribute('aria-expanded', 'false');
                 renderCalendar();
               };
-            }(new Date(date.getTime())));
+            })(new Date(date.getTime())));
           }
 
           calendarGrid.appendChild(btn);
         }
       }
 
-      if (dateTrigger && calendarDropdown) {
+      renderCalendar();
+
+      dateTrigger.addEventListener('click', function() {
+        var isOpen = !calendarDropdown.hasAttribute('hidden');
+        if (isOpen) {
+          calendarDropdown.setAttribute('hidden', '');
+          dateTrigger.setAttribute('aria-expanded', 'false');
+        } else {
+          calendarDropdown.removeAttribute('hidden');
+          dateTrigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+
+      calendarPrev.addEventListener('click', function() {
+        currentMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1);
         renderCalendar();
+      });
 
-        dateTrigger.addEventListener('click', function() {
-          var isOpen = !calendarDropdown.hasAttribute('hidden');
-          if (isOpen) {
-            calendarDropdown.setAttribute('hidden', '');
-            dateTrigger.setAttribute('aria-expanded', 'false');
-          } else {
-            calendarDropdown.removeAttribute('hidden');
-            dateTrigger.setAttribute('aria-expanded', 'true');
-          }
-        });
+      calendarNext.addEventListener('click', function() {
+        currentMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1);
+        renderCalendar();
+      });
 
-        calendarPrev.addEventListener('click', function() {
-          currentMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1);
-          renderCalendar();
-        });
-
-        calendarNext.addEventListener('click', function() {
-          currentMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1);
-          renderCalendar();
-        });
-
-        document.addEventListener('click', function(e) {
-          if (!calendarDropdown.hasAttribute('hidden') && !calendarDropdown.contains(e.target) && e.target !== dateTrigger && !dateTrigger.contains(e.target)) {
-            calendarDropdown.setAttribute('hidden', '');
-            dateTrigger.setAttribute('aria-expanded', 'false');
-          }
-        });
-      }
-
+      // Time dropdown
       var timeSlots = [];
       for (var h = 9; h <= 20; h++) {
         for (var half = 0; half < 2; half++) {
@@ -334,6 +372,7 @@
       var timeDisplay = document.getElementById('book-time-display');
       var timeInput = document.getElementById('book-time');
       var timeListDropdown = document.getElementById('time-list-dropdown');
+
       timeSlots.forEach(function(slot) {
         var opt = document.createElement('button');
         opt.type = 'button';
@@ -349,8 +388,9 @@
         });
         timeListDropdown.appendChild(opt);
       });
+
       timeTrigger.addEventListener('click', function() {
-        var open = timeListDropdown.getAttribute('hidden') == null;
+        var open = !timeListDropdown.hasAttribute('hidden');
         if (open) {
           timeListDropdown.setAttribute('hidden', '');
           timeTrigger.setAttribute('aria-expanded', 'false');
@@ -359,27 +399,48 @@
           timeTrigger.setAttribute('aria-expanded', 'true');
         }
       });
+
+      // Shared outside click close for all three dropdowns
       document.addEventListener('click', function(e) {
-        if (timeListDropdown.getAttribute('hidden') == null && !timeListDropdown.contains(e.target) && e.target !== timeTrigger) {
+        if (!serviceListDropdown.hasAttribute('hidden') && !serviceListDropdown.contains(e.target) && !serviceTrigger.contains(e.target)) {
+          serviceListDropdown.setAttribute('hidden', '');
+          serviceTrigger.setAttribute('aria-expanded', 'false');
+        }
+        if (!calendarDropdown.hasAttribute('hidden') && !calendarDropdown.contains(e.target) && !dateTrigger.contains(e.target)) {
+          calendarDropdown.setAttribute('hidden', '');
+          dateTrigger.setAttribute('aria-expanded', 'false');
+        }
+        if (!timeListDropdown.hasAttribute('hidden') && !timeListDropdown.contains(e.target) && !timeTrigger.contains(e.target)) {
           timeListDropdown.setAttribute('hidden', '');
           timeTrigger.setAttribute('aria-expanded', 'false');
         }
       });
 
+      // Prefill service from query
       var params = new URLSearchParams(window.location.search);
       var service = params.get('service');
-      var sel = document.getElementById('book-service');
-      if (service && sel) {
+      if (service) {
         var decoded = decodeURIComponent(service.replace(/\+/g, ' '));
-        var opt = Array.from(sel.options).find(function(o) { return o.value === decoded || o.value === service; });
-        if (opt) sel.value = opt.value;
+        var match = serviceOptions.find(function(name) { return name === decoded || name === service; });
+        if (match) {
+          serviceInput.value = match;
+          serviceDisplay.textContent = match;
+        }
       }
 
       form.addEventListener('submit', function(e) {
         e.preventDefault();
         if (submitBtn.disabled) return;
 
-        var dateVal = dateInput.value, timeVal = timeInput.value;
+        var serviceVal = serviceInput.value;
+        var dateVal = dateInput.value;
+        var timeVal = timeInput.value;
+
+        if (!serviceVal) {
+          feedback.className = 'form-feedback form-feedback-error';
+          feedback.textContent = 'Please select a service.';
+          return;
+        }
         if (!dateVal || !timeVal) {
           feedback.className = 'form-feedback form-feedback-error';
           feedback.textContent = 'Please select both a date and a time.';
@@ -390,8 +451,11 @@
         if (botField && botField.value) {
           feedback.textContent = '';
           form.reset();
+          serviceInput.value = '';
+          serviceDisplay.textContent = 'Select a service';
           timeInput.value = '';
           timeDisplay.textContent = 'Select time';
+          dateInput.value = '';
           dateDisplay.textContent = 'Select date';
           return;
         }
@@ -411,7 +475,7 @@
         var body = new URLSearchParams(formData).toString();
 
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Submitting…';
+        submitBtn.textContent = 'Submitting...';
         feedback.className = 'form-feedback';
         feedback.textContent = '';
 
@@ -425,6 +489,8 @@
               feedback.className = 'form-feedback form-feedback-success';
               feedback.textContent = "Request received! We'll call or text shortly to confirm your appointment.";
               form.reset();
+              serviceInput.value = '';
+              serviceDisplay.textContent = 'Select a service';
               timeInput.value = '';
               timeDisplay.textContent = 'Select time';
               dateInput.value = '';
@@ -439,7 +505,7 @@
           })
           .catch(function() {
             feedback.className = 'form-feedback form-feedback-error';
-            feedback.textContent = 'Something went wrong — please try again or call/text us at 310 985 9260.';
+            feedback.textContent = 'Something went wrong — please try again or call/text us at (310) 985-9260.';
           })
           .finally(function() {
             submitBtn.disabled = false;
