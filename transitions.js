@@ -1,33 +1,64 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   document.body.classList.add('fade-in');
 
   const header = document.querySelector('.header');
   let lastScrollTop = 0;
 
-  window.addEventListener('scroll', function() {
+  window.addEventListener('scroll', function () {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollTop > lastScrollTop && scrollTop > 100) {
-      header.classList.add('nav-hidden');
+    if (scrollTop > lastScrollTop && scrollTop > 120) {
+      header && header.classList.add('nav-hidden');
     } else {
-      header.classList.remove('nav-hidden');
+      header && header.classList.remove('nav-hidden');
     }
-    lastScrollTop = scrollTop;
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   });
 
-  const allLinks = document.querySelectorAll('a:not([target="_blank"]):not([href^="tel:"]):not([href^="mailto:"]):not([href^="sms:"])');
-  allLinks.forEach(link => {
-    if (link.getAttribute('href') && link.getAttribute('href').startsWith('#')) return;
-    link.addEventListener('click', function(e) {
+  const links = document.querySelectorAll('a:not([target="_blank"]):not([href^="tel:"]):not([href^="mailto:"]):not([href^="sms:"])');
+  links.forEach(function (link) {
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('#')) return;
+
+    link.addEventListener('click', function (e) {
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-      const targetPage = this.getAttribute('href');
-      if (targetPage === currentPage || !targetPage || targetPage.startsWith('#')) return;
+      if (href === currentPage) return;
       e.preventDefault();
       window.scrollTo(0, 0);
       document.body.classList.add('fade-out');
-      setTimeout(function() { window.location.href = targetPage; }, 300);
+      setTimeout(function () {
+        window.location.href = href;
+      }, 240);
     });
   });
+
+  // Subtle reveal animation for sections/cards as they enter viewport.
+  const revealTargets = document.querySelectorAll('section, .service-card, .team-card, .review-card, .popular-service-card, .review-preview-card, .why-choose-item, .booking-form-container');
+  revealTargets.forEach(function (el) {
+    el.classList.add('reveal');
+  });
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-in');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -30px 0px' }
+    );
+
+    revealTargets.forEach(function (el) {
+      io.observe(el);
+    });
+  } else {
+    revealTargets.forEach(function (el) {
+      el.classList.add('reveal-in');
+    });
+  }
 
   if (window.innerWidth < 768) {
     const mobileCta = document.createElement('div');
@@ -63,7 +94,5 @@ document.addEventListener('DOMContentLoaded', function() {
       </a>
     `;
     document.body.appendChild(mobileCta);
-    const footer = document.querySelector('.footer');
-    if (footer) footer.style.paddingBottom = '70px';
   }
 });
