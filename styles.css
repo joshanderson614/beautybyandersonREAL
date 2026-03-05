@@ -1104,3 +1104,17 @@ main > section:last-of-type {
     max-width: 100%;
   }
 }
+
+
+/* Book page spacing + centering tweaks */
+.booking-page .section-title {
+  text-align: center;
+  margin-top: 0.85rem;
+}
+.booking-page .booking-form .btn-submit {
+  display: flex;
+  width: fit-content;
+  min-width: 220px;
+  margin-left: auto;
+  margin-right: auto;
+}
