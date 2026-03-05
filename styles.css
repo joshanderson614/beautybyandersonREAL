@@ -976,3 +976,131 @@ main > section:last-of-type {
     width: 100%;
   }
 }
+
+
+/* ===== Phone + Calendar + Footer list polish ===== */
+.iti {
+  width: 100%;
+}
+.iti__selected-country {
+  border-radius: 10px;
+}
+.iti--separate-dial-code .iti__selected-dial-code {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+/* Professional calendar dropdown */
+.date-dropdown-wrap {
+  position: relative;
+}
+.calendar-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  max-width: 360px;
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+  box-shadow: var(--shadow-hover);
+  padding: 0.85rem;
+  z-index: 30;
+}
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+.calendar-month {
+  font-weight: 700;
+  color: var(--color-ink);
+  letter-spacing: 0.01em;
+}
+.calendar-nav {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--trans), transform var(--trans);
+}
+.calendar-nav:hover {
+  background: var(--color-surface-alt);
+  transform: translateY(-1px);
+}
+.calendar-weekdays,
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+.calendar-weekdays {
+  margin-bottom: 0.4rem;
+}
+.calendar-weekdays span {
+  font-size: 0.76rem;
+  text-align: center;
+  color: var(--color-ink-soft);
+  font-weight: 600;
+}
+.calendar-day {
+  height: 36px;
+  border: 0;
+  background: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--color-ink);
+  font-weight: 500;
+  transition: background var(--trans), color var(--trans), transform var(--trans);
+}
+.calendar-day:hover {
+  background: rgba(139, 74, 61, 0.14);
+  transform: translateY(-1px);
+}
+.calendar-day.is-selected {
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+}
+.calendar-day.is-today {
+  outline: 1.5px solid var(--color-primary);
+  outline-offset: -1px;
+}
+.calendar-day.is-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.calendar-day.is-empty {
+  visibility: hidden;
+}
+
+.booking-info-centered {
+  text-align: center;
+  margin-top: 1.7rem;
+}
+.booking-info-centered p {
+  margin-bottom: 0.35rem;
+}
+
+/* Remove white dots in footer lists and keep clean formatting */
+.footer-hours ul,
+.footer-location ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-hours li {
+  margin-bottom: 0.32rem;
+}
+
+@media (max-width: 768px) {
+  .calendar-dropdown {
+    max-width: 100%;
+  }
+}

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Appointment | Beauty by Anderson – Westwood, LA | Call (310) 985-9826</title>
-  <meta name="description" content="Book your appointment at Beauty by Anderson. Call (310) 985-9826, text, or request online. 700 Levering Ave, Westwood, Los Angeles.">
+  <title>Book Appointment | Beauty by Anderson – Westwood, LA | Call 310 985 9260</title>
+  <meta name="description" content="Book your appointment at Beauty by Anderson. Call 310 985 9260, text, or request online. 700 Levering Ave, Westwood, Los Angeles.">
   <meta property="og:title" content="Book Appointment | Beauty by Anderson">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="accessibility.css">
@@ -15,6 +15,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
   <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.8.0/build/css/intlTelInput.css">
 </head>
 <body class="booking-page">
   <header class="header">
@@ -40,15 +41,15 @@
 
   <main id="main-content">
     <div class="booking-methods cta-pair">
-      <a href="tel:+13109859826" class="btn-hero btn-outline" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+      <a href="tel:+13109859260" class="btn-hero btn-outline" style="display: inline-flex; align-items: center; gap: 0.5rem;">
         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Call (310) 985-9826
+        Call 310 985 9260
       </a>
       <a href="https://www.google.com/maps/dir//700+Levering+Ave,+Los+Angeles,+CA+90024" target="_blank" rel="noopener" class="btn-hero btn-outline" style="display: inline-flex; align-items: center; gap: 0.5rem;">
         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         Get Directions
       </a>
-      <a href="sms:+13109859826" class="btn-hero btn-outline btn-text-us" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+      <a href="sms:+13109859260" class="btn-hero btn-outline btn-text-us" style="display: inline-flex; align-items: center; gap: 0.5rem;">
         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         Text Us
       </a>
@@ -68,7 +69,7 @@
         </div>
         <div class="form-group">
           <label for="book-phone">Phone</label>
-          <input type="tel" id="book-phone" name="phone" required pattern="[\d\s\-\.\+\(\)]{10,}" title="Enter a valid phone number (at least 10 digits)" autocomplete="tel">
+          <input type="tel" id="book-phone" name="phone" required autocomplete="tel" placeholder="Phone number">
         </div>
         <div class="form-group">
           <label for="book-email">Email <span class="optional">(optional)</span></label>
@@ -85,8 +86,25 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="book-date">Date</label>
-          <input type="date" id="book-date" name="preferredDate" required min="" autocomplete="off" class="booking-form-input-date">
+          <label for="book-date-trigger">Date</label>
+          <div class="date-dropdown-wrap">
+            <button type="button" id="book-date-trigger" class="date-time-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Choose date">
+              <span id="book-date-display">Select date</span>
+              <span class="dropdown-arrow" aria-hidden="true">▼</span>
+            </button>
+            <input type="hidden" id="book-date" name="preferredDate" value="" required>
+            <div id="calendar-dropdown" class="calendar-dropdown" hidden>
+              <div class="calendar-header">
+                <button type="button" class="calendar-nav" id="calendar-prev" aria-label="Previous month">&#8249;</button>
+                <div class="calendar-month" id="calendar-month">Month</div>
+                <button type="button" class="calendar-nav" id="calendar-next" aria-label="Next month">&#8250;</button>
+              </div>
+              <div class="calendar-weekdays">
+                <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+              </div>
+              <div class="calendar-grid" id="calendar-grid"></div>
+            </div>
+          </div>
         </div>
         <div class="form-group">
           <label for="book-time-trigger">Time</label>
@@ -109,27 +127,29 @@
       </form>
     </div>
 
-    <p style="margin-top: 2rem; color: var(--color-text-muted);">We&rsquo;ll call or text to confirm your appointment.</p>
-    <p><strong>Phone:</strong> <a href="tel:+13109859826">(310) 985-9826</a></p>
-    <p><strong>Address:</strong> 700 Levering Ave, Los Angeles, CA 90024</p>
-    <p><strong>Hours:</strong> Mon–Sat 9AM–8PM, Sun 11AM–3PM</p>
-    <p><a href="https://www.google.com/maps/dir//700+Levering+Ave,+Los+Angeles,+CA+90024" target="_blank" rel="noopener">Get directions</a></p>
-    <p>Street parking available.</p>
+    <div class="booking-info-centered">
+      <p>We&rsquo;ll call or text to confirm your appointment.</p>
+      <p><strong>Phone:</strong> <a href="tel:+13109859260">310 985 9260</a></p>
+      <p><strong>Address:</strong> 700 Levering Ave, Los Angeles, CA 90024</p>
+      <p><strong>Hours:</strong> Monday-Saturday 9AM-8PM, Sunday 11AM-3PM</p>
+      <p><a href="https://www.google.com/maps/dir//700+Levering+Ave,+Los+Angeles,+CA+90024" target="_blank" rel="noopener">Get directions</a></p>
+      <p>Street parking available.</p>
+    </div>
   </main>
 
   <footer class="footer" id="contact">
     <div class="footer-nap">
       <img src="images/new-logo.png" alt="Beauty by Anderson" class="footer-brand-logo" width="220" height="110" loading="lazy">
-      <span class="footer-nap-line2">700 Levering Ave, Los Angeles, CA 90024 | <a href="tel:+13109859826">(310) 985-9826</a></span>
+      <span class="footer-nap-line2">700 Levering Ave, Los Angeles, CA 90024 | <a href="tel:+13109859260">310 985 9260</a></span>
     </div>
     <div class="footer-grid">
       <div class="footer-contact">
         <h3>Contact</h3>
         <div class="contact-buttons">
           <a href="book.html" class="contact-btn contact-btn-primary">Book Now</a>
-          <a href="tel:+13109859826" class="contact-btn">Call (310) 985-9826</a>
+          <a href="tel:+13109859260" class="contact-btn">Call 310 985 9260</a>
           <a href="https://www.google.com/maps/dir//700+Levering+Ave,+Los+Angeles,+CA+90024" target="_blank" rel="noopener" class="contact-btn">Get Directions</a>
-          <a href="sms:+13109859826" class="contact-btn">Message</a>
+          <a href="sms:+13109859260" class="contact-btn">Message</a>
         </div>
         <div class="footer-rating"><span class="footer-rating-stars">★★★★★</span> 4.6/5 on Google</div>
       </div>
@@ -143,7 +163,12 @@
       <div class="footer-hours">
         <h3>Hours</h3>
         <ul>
-          <li><strong>Monday–Saturday:</strong> 9AM – 8PM</li>
+          <li><strong>Monday:</strong> 9AM – 8PM</li>
+          <li><strong>Tuesday:</strong> 9AM – 8PM</li>
+          <li><strong>Wednesday:</strong> 9AM – 8PM</li>
+          <li><strong>Thursday:</strong> 9AM – 8PM</li>
+          <li><strong>Friday:</strong> 9AM – 8PM</li>
+          <li><strong>Saturday:</strong> 9AM – 8PM</li>
           <li><strong>Sunday:</strong> 11AM – 3PM</li>
         </ul>
       </div>
@@ -152,6 +177,8 @@
   </footer>
 
   <script src="transitions.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.8.0/build/js/intlTelInput.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.8.0/build/js/utils.js"></script>
   <script>
     (function() {
       var form = document.querySelector('.booking-form');
@@ -159,10 +186,138 @@
       var submitBtn = document.getElementById('form-submit-btn');
       var dateInput = document.getElementById('book-date');
 
-      if (dateInput) {
-        var today = new Date();
-        var y = today.getFullYear(), m = today.getMonth() + 1, d = today.getDate();
-        dateInput.min = y + '-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ? '0' + d : d);
+      var phoneInput = document.getElementById('book-phone');
+      var iti = null;
+      if (window.intlTelInput && phoneInput) {
+        iti = window.intlTelInput(phoneInput, {
+          initialCountry: 'us',
+          preferredCountries: ['us', 'ca', 'gb', 'au'],
+          separateDialCode: true,
+          utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@23.8.0/build/js/utils.js'
+        });
+      }
+
+      // Calendar dropdown setup
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+      var currentMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+      var selectedDate = null;
+
+      var dateTrigger = document.getElementById('book-date-trigger');
+      var dateDisplay = document.getElementById('book-date-display');
+      var calendarDropdown = document.getElementById('calendar-dropdown');
+      var calendarGrid = document.getElementById('calendar-grid');
+      var calendarMonth = document.getElementById('calendar-month');
+      var calendarPrev = document.getElementById('calendar-prev');
+      var calendarNext = document.getElementById('calendar-next');
+
+      function formatValueDate(date) {
+        var y = date.getFullYear();
+        var m = String(date.getMonth() + 1).padStart(2, '0');
+        var d = String(date.getDate()).padStart(2, '0');
+        return y + '-' + m + '-' + d;
+      }
+
+      function formatFriendlyDate(date) {
+        return date.toLocaleDateString(undefined, {
+          weekday: 'short',
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric'
+        });
+      }
+
+      function renderCalendar() {
+        if (!calendarGrid) return;
+        var year = currentMonth.getFullYear();
+        var month = currentMonth.getMonth();
+        var firstDay = new Date(year, month, 1).getDay();
+        var daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        calendarMonth.textContent = currentMonth.toLocaleDateString(undefined, {
+          month: 'long',
+          year: 'numeric'
+        });
+
+        calendarGrid.innerHTML = '';
+
+        for (var i = 0; i < firstDay; i++) {
+          var blank = document.createElement('button');
+          blank.type = 'button';
+          blank.className = 'calendar-day is-empty';
+          blank.disabled = true;
+          blank.textContent = '';
+          calendarGrid.appendChild(blank);
+        }
+
+        for (var day = 1; day <= daysInMonth; day++) {
+          var date = new Date(year, month, day);
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'calendar-day';
+          btn.textContent = day;
+
+          var isPast = date < today;
+          if (isPast) {
+            btn.classList.add('is-disabled');
+            btn.disabled = true;
+          }
+
+          if (selectedDate && formatValueDate(date) === formatValueDate(selectedDate)) {
+            btn.classList.add('is-selected');
+          }
+
+          if (formatValueDate(date) === formatValueDate(today)) {
+            btn.classList.add('is-today');
+          }
+
+          if (!isPast) {
+            btn.addEventListener('click', function(d) {
+              return function() {
+                selectedDate = d;
+                dateInput.value = formatValueDate(d);
+                dateDisplay.textContent = formatFriendlyDate(d);
+                calendarDropdown.setAttribute('hidden', '');
+                dateTrigger.setAttribute('aria-expanded', 'false');
+                renderCalendar();
+              };
+            }(new Date(date.getTime())));
+          }
+
+          calendarGrid.appendChild(btn);
+        }
+      }
+
+      if (dateTrigger && calendarDropdown) {
+        renderCalendar();
+
+        dateTrigger.addEventListener('click', function() {
+          var isOpen = !calendarDropdown.hasAttribute('hidden');
+          if (isOpen) {
+            calendarDropdown.setAttribute('hidden', '');
+            dateTrigger.setAttribute('aria-expanded', 'false');
+          } else {
+            calendarDropdown.removeAttribute('hidden');
+            dateTrigger.setAttribute('aria-expanded', 'true');
+          }
+        });
+
+        calendarPrev.addEventListener('click', function() {
+          currentMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1);
+          renderCalendar();
+        });
+
+        calendarNext.addEventListener('click', function() {
+          currentMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1);
+          renderCalendar();
+        });
+
+        document.addEventListener('click', function(e) {
+          if (!calendarDropdown.hasAttribute('hidden') && !calendarDropdown.contains(e.target) && e.target !== dateTrigger && !dateTrigger.contains(e.target)) {
+            calendarDropdown.setAttribute('hidden', '');
+            dateTrigger.setAttribute('aria-expanded', 'false');
+          }
+        });
       }
 
       var timeSlots = [];
@@ -237,7 +392,13 @@
           form.reset();
           timeInput.value = '';
           timeDisplay.textContent = 'Select time';
+          dateDisplay.textContent = 'Select date';
           return;
+        }
+
+        if (iti && phoneInput) {
+          var fullNumber = iti.getNumber();
+          phoneInput.value = fullNumber || phoneInput.value;
         }
 
         var sourceInput = document.getElementById('form-source-page');
@@ -262,10 +423,15 @@
           .then(function(res) {
             if (res.ok) {
               feedback.className = 'form-feedback form-feedback-success';
-              feedback.textContent = 'Request received! We\'ll call or text shortly to confirm your appointment.';
+              feedback.textContent = 'Request received! We'll call or text shortly to confirm your appointment.';
               form.reset();
               timeInput.value = '';
               timeDisplay.textContent = 'Select time';
+              dateInput.value = '';
+              dateDisplay.textContent = 'Select date';
+              selectedDate = null;
+              renderCalendar();
+              if (iti && phoneInput) iti.setCountry('us');
               if (sourceInput) sourceInput.value = '';
             } else {
               throw new Error('Submit failed');
@@ -273,7 +439,7 @@
           })
           .catch(function() {
             feedback.className = 'form-feedback form-feedback-error';
-            feedback.textContent = 'Something went wrong — please try again or call/text us at (310) 985-9826.';
+            feedback.textContent = 'Something went wrong — please try again or call/text us at 310 985 9260.';
           })
           .finally(function() {
             submitBtn.disabled = false;
